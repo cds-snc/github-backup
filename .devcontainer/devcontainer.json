@@ -1,0 +1,36 @@
+{
+	"name": "github-backup",
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
+	"containerEnv": {
+		"SHELL": "/bin/zsh",
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/aws-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/terraform:1": {
+			"version": "1.13.5"
+		}
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"hashicorp.terraform",
+				"github.copilot",
+				"github.vscode-github-actions",
+				"hashicorp.hcl"
+			]
+		},
+		"codespaces": {
+			"extensions": [
+				"hashicorp.terraform",
+				"github.copilot",
+				"github.vscode-github-actions",
+				"hashicorp.hcl"
+			]
+		}
+	},
+
+	"remoteUser": "vscode"
+}
