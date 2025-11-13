@@ -40,8 +40,8 @@ data "aws_iam_policy_document" "github_backup_write" {
       "s3:ListBucket",
     ]
     resources = [
-      module.backup_bucket.bucket_arn,
-      "${module.backup_bucket.bucket_arn}/*"
+      module.backup_bucket.s3_bucket_arn,
+      "${module.backup_bucket.s3_bucket_arn}/*"
     ]
   }
 }
