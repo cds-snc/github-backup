@@ -32,15 +32,11 @@ resource "aws_iam_policy" "github_backup_write" {
 
 data "aws_iam_policy_document" "github_backup_write" {
   statement {
-    sid = "S3ReadWrite"
+    sid = "S3Write"
     actions = [
       "s3:PutObject",
-      "s3:GetObject",
-      "s3:DeleteObject",
-      "s3:ListBucket",
     ]
     resources = [
-      module.backup_bucket.s3_bucket_arn,
       "${module.backup_bucket.s3_bucket_arn}/*"
     ]
   }
