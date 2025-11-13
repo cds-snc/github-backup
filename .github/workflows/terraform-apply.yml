@@ -20,7 +20,7 @@ permissions:
   contents: read
 
 jobs:
-  terragrunt-apply:
+  terraform-apply:
     runs-on: ubuntu-latest
     steps:
 
@@ -46,4 +46,6 @@ jobs:
 
       - name: Apply Terraform
         working-directory: terraform
-        run: terraform apply -auto-approve
+        run: |
+          terraform init
+          terraform apply -auto-approve

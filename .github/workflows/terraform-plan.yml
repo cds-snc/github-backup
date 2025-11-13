@@ -19,9 +19,9 @@ permissions:
 
 jobs:
   terraform-plan:
-
     runs-on: ubuntu-latest
     steps:
+
       - name: Audit DNS requests
         uses: cds-snc/dns-proxy-action@a0d442834e9028e22d0f919e48a5eb92de712976
         env:
