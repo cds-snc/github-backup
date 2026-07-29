@@ -3,13 +3,22 @@ locals {
 }
 
 module "github_workflow_roles" {
-  source            = "github.com/cds-snc/terraform-modules//gh_oidc_role?ref=v10.11.4"
+  source            = "github.com/cds-snc/terraform-modules//gh_oidc_role?ref=v11.4.5"
   billing_tag_value = local.billing_tag_value
   roles = [
     {
-      name      = local.github_backup_write
-      repo_name = "*" # Allow any CDS repo to use this role
-      claim     = "ref:refs/heads/main"
+      name = local.github_backup_write
+      claims = [
+        {
+          repo_name = "*" # Allow any CDS repo to use this role
+          claim     = "ref:refs/heads/main"
+        },
+        {
+          org_name  = "cds-snc@30166251" # Org ID qualified subject claim
+          repo_name = "*"
+          claim     = "ref:refs/heads/main"
+        }
+      ]
     }
   ]
 }
