@@ -3,7 +3,7 @@ locals {
 }
 
 module "github_workflow_roles" {
-  source            = "github.com/cds-snc/terraform-modules//gh_oidc_role?ref=v11.4.5"
+  source            = "github.com/cds-snc/terraform-modules//gh_oidc_role?ref=v11.4.7"
   billing_tag_value = local.billing_tag_value
   roles = [
     {
